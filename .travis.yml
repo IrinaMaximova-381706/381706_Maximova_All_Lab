@@ -8,7 +8,6 @@ before_script:
 script:
   - cmake ../mp2-lab1-set
   - make -j
-  - cd ./bin/
-  - ./test_set
+  - ./Vector
 notifications:
   email: false
