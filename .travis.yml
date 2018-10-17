@@ -6,7 +6,7 @@ before_script:
   - mkdir ../build
   - cd ../build
 script:
-  - cmake ../AllL
+  - cmake ../381706_MaximovaIrina_All_Lab
   - make -j
   - ./Vector/Vector
 notifications:
