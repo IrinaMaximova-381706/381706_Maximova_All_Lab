@@ -19,6 +19,5 @@ int main()
 	cout << "Matrix a = " << endl << a << endl;
 	cout << "Matrix b = " << endl << b << endl;
 	cout << "Matrix c = a + b" << endl << c << endl;
-	cin >> i;
 	return 0;
 }
