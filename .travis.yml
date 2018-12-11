@@ -8,9 +8,7 @@ before_script:
 script:
   - cmake ../381706_Maximova_All_Lab
   - make -j
-  - ./Vector/Vector
   - ./VectorTest/VectorTest
-  - ./Matrix/Matrix
   - ./MatrixTest/MatrixTest
 notifications:
   email: false
