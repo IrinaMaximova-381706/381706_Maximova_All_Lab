@@ -1,19 +1,20 @@
 #pragma once
 #include <iostream>
+using namespace std;
+
 template <class T>
 class TVector
 {
 protected:
-  T *vec;     //óêàçàòåëü íà âåêòîð 
-  int size;       // ðàçìåð âåêòîðà
+  T *vec;     
+  int size;   
 public:
   TVector(int s = 0);
   TVector(const TVector &v);                
   virtual ~TVector();
 
-  int GetSize() const; // ðàçìåð âåêòîðà
-  virtual T& operator[](int pos);           // äîñòóï
-  
+  int GetSize() const; 
+  virtual T& operator[](int pos);         
   bool operator==(const TVector &v) const;  // ñðàâíåíèå
   bool operator!=(const TVector &v) const;  // ñðàâíåíèå
   virtual TVector& operator=(const TVector &v); // ïðèñâàèâàíèå
@@ -36,7 +37,7 @@ template <class T>
 TVector<T>::TVector(int s)
 {
 	if (s < 0)
-		throw MyException("error size");
+		throw 1;
   else
     if (s == 0) 
     {
@@ -89,7 +90,7 @@ T& TVector<T>::operator[](int pos)
 	if (pos >= 0 && pos < size)
 		return vec[pos];
 	else
-		throw MyException("error index");
+		throw 1;
 } //-------------------------------------------------------------------------
 
 template <class T>
@@ -157,7 +158,7 @@ template <class T>
 TVector<T> TVector<T>::operator+(const TVector<T> &v)
 {
   if (size != v.size)
-    throw MyException("error size operand");
+    throw 1;
   TVector<T> rez(*this);
   for (int i = 0; i < size; i++)
     rez[i] = (*this)[i] + v.vec[i];
@@ -168,7 +169,7 @@ template <class T>
 TVector<T> TVector<T>::operator-(const TVector<T> &v)
 {
   if (size != v.size)
-    throw MyException("error size operand");
+    throw 1;
   TVector<T> rez(*this);
   for (int i = 0; i < size; i++)
     rez[i] = (*this)[i] - v.vec[i];
@@ -179,7 +180,7 @@ template <class T>
 T TVector<T>::operator*(const TVector<T> &v)
 {
   if (size != v.size)
-    throw MyException("error size operand");
+    throw 1;
   int temp = 0;
   for (int i = 0; i < size; i++)
     temp += vec[i] * v.vec[i];
