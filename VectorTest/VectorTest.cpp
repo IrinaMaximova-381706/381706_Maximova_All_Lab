@@ -126,7 +126,7 @@ TEST(Vector, can_multiply_to_number)
   V1 = V1 + 1;
   V1 = V1 * 3; 
   int temp = V1[0] + V1[1];
-  ASSERT_TRUE(temp, 6);
+  ASSERT_TRUE(temp == 6);
 }
 
 TEST(Vector, can_addition_vectors)
