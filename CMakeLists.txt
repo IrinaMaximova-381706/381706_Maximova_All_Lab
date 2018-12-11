@@ -1,12 +1,17 @@
-﻿cmake_minimum_required(VERSION 2.8) #Проверка версии CMake.
+cmake_minimum_required(VERSION 2.8) #Проверка версии CMake.
 
-set(PROJECT_NAME AllL) #Создаем обычную локальную переменную с именем проекта
+set(PROJECT_NAME All_Labs) #Создаем обычную локальную переменную с именем проекта
 project(${PROJECT_NAME}) # Название проекта
 
-#set(Lift_lib Lift_lib) #Переменная с именем библиотеки
+set(ExceptionLib ExceptionLib)
 
 set(Vector Vector)
-set(Vectorlib Vectorlib)
+set(VectorLib VectorLib)
+set(VectorTest VectorTest)
+
+set(Matrix Matrix)
+set(MatrixLib Matrixlib)
+set(MatrixTest MatrixTest)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
 if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компилятора вариантов сборки
@@ -16,10 +21,21 @@ endif()
 #file(GLOB hdrs "*.h*") #Добавляем в переменную hdrs все файлы с расширением .h
 #file(GLOB srcs "*.cpp") #Добавляем в переменную srcs все файлы с расширением .cpp
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/gtest)
+add_subdirectory(gtest)
 
-add_subdirectory(Vector) 
-add_subdirectory(VectorLib) 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ExceptionLib)
+add_subdirectory(ExceptionLib)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
+add_subdirectory(Vector)
+add_subdirectory(VectorLib)
+add_subdirectory(VectorTest)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MatrixLib)
+add_subdirectory(Matrix)
+add_subdirectory(MatrixLib)
+add_subdirectory(MatrixTest)
 
 #add_executable(${PROJECT_NAME} ${srcs} ${hdrs}) #Создаем проект с именем из переменной ${PROJECT_NAME}, в него добавляются файлы из переменных ${srcs} и ${hdrs}
 #add_subdirectory(Lift_lib) #Собираем проект в поддиректории lib1
