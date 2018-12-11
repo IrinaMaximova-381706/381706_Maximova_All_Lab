@@ -6,8 +6,8 @@ before_script:
   - mkdir ../build
   - cd ../build
 script:
-  - cmake ../381706_MaximovaIrina_All_Lab
+  - cmake ../381706_Maximova_All_Lab
   - make -j
-  - ./Vector/Vector
+  - ./VectorTest/VectorTest
 notifications:
   email: false
