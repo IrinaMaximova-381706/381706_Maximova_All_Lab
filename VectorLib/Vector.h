@@ -1,31 +1,30 @@
 #pragma once
-#include "ExceptionLib.h"
-
+#include <iostream>
 template <class T>
 class TVector
 {
 protected:
-  T *vec;     //указатель на вектор 
-  int size;       // размер вектора
+  T *vec;     //ГіГЄГ Г§Г ГІГҐГ«Гј Г­Г  ГўГҐГЄГІГ®Г° 
+  int size;       // Г°Г Г§Г¬ГҐГ° ГўГҐГЄГІГ®Г°Г 
 public:
   TVector(int s = 0);
   TVector(const TVector &v);                
   virtual ~TVector();
 
-  int GetSize() const; // размер вектора
-  virtual T& operator[](int pos);           // доступ
+  int GetSize() const; // Г°Г Г§Г¬ГҐГ° ГўГҐГЄГІГ®Г°Г 
+  virtual T& operator[](int pos);           // Г¤Г®Г±ГІГіГЇ
   
-  bool operator==(const TVector &v) const;  // сравнение
-  bool operator!=(const TVector &v) const;  // сравнение
-  virtual TVector& operator=(const TVector &v); // присваивание
+  bool operator==(const TVector &v) const;  // Г±Г°Г ГўГ­ГҐГ­ГЁГҐ
+  bool operator!=(const TVector &v) const;  // Г±Г°Г ГўГ­ГҐГ­ГЁГҐ
+  virtual TVector& operator=(const TVector &v); // ГЇГ°ГЁГ±ГўГ ГЁГўГ Г­ГЁГҐ
 
-  TVector operator+(const T &val);   // прибавить скаляр
-  TVector operator-(const T &val);   // вычесть скаляр
-  TVector operator*(const T &val);   // умножить на скаляр
+  TVector operator+(const T &val);   // ГЇГ°ГЁГЎГ ГўГЁГІГј Г±ГЄГ Г«ГїГ°
+  TVector operator-(const T &val);   // ГўГ»Г·ГҐГ±ГІГј Г±ГЄГ Г«ГїГ°
+  TVector operator*(const T &val);   // ГіГ¬Г­Г®Г¦ГЁГІГј Г­Г  Г±ГЄГ Г«ГїГ°
 
-  TVector operator+(const TVector &v);     // сложение
-  TVector operator-(const TVector &v);     // вычитание
-  T operator*(const TVector &v);     // скалярное произведение
+  TVector operator+(const TVector &v);     // Г±Г«Г®Г¦ГҐГ­ГЁГҐ
+  TVector operator-(const TVector &v);     // ГўГ»Г·ГЁГІГ Г­ГЁГҐ
+  T operator*(const TVector &v);     // Г±ГЄГ Г«ГїГ°Г­Г®ГҐ ГЇГ°Г®ГЁГ§ГўГҐГ¤ГҐГ­ГЁГҐ
 
   template <class ValType1>
   friend istream& operator>>(istream &in, TVector<ValType1>& v);
