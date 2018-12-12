@@ -40,6 +40,15 @@ int main()
   {
     exp.Print();
   }
+  
+   try {
+    R = M1 / M2;
+    cout << "Result M1 * M2:" << endl << R << endl;
+  }
+  catch (MyException exp)
+  {
+    exp.Print();
+  }
 
   cout << "\n\nUsing input / output streams:\n";
   TMatrix <int> MT(3);
