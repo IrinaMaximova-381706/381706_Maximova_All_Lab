@@ -1,31 +1,31 @@
 #pragma once
-#include <iostream>
-using namespace std;
+#include "ExceptionLib.h"
 
 template <class T>
 class TVector
 {
 protected:
-  T *vec;     
-  int size;   
+  T *vec;     //указатель на вектор 
+  int size;       // размер вектора
 public:
   TVector(int s = 0);
   TVector(const TVector &v);                
   virtual ~TVector();
 
-  int GetSize() const; 
-  virtual T& operator[](int pos);         
-  bool operator==(const TVector &v) const;  // Г±Г°Г ГўГ­ГҐГ­ГЁГҐ
-  bool operator!=(const TVector &v) const;  // Г±Г°Г ГўГ­ГҐГ­ГЁГҐ
-  virtual TVector& operator=(const TVector &v); // ГЇГ°ГЁГ±ГўГ ГЁГўГ Г­ГЁГҐ
+  int GetSize() const; // размер вектора
+  virtual T& operator[](int pos);           // доступ
+  
+  bool operator==(const TVector &v) const;  // сравнение
+  bool operator!=(const TVector &v) const;  // сравнение
+  virtual TVector& operator=(const TVector &v); // присваивание
 
-  TVector operator+(const T &val);   // ГЇГ°ГЁГЎГ ГўГЁГІГј Г±ГЄГ Г«ГїГ°
-  TVector operator-(const T &val);   // ГўГ»Г·ГҐГ±ГІГј Г±ГЄГ Г«ГїГ°
-  TVector operator*(const T &val);   // ГіГ¬Г­Г®Г¦ГЁГІГј Г­Г  Г±ГЄГ Г«ГїГ°
+  TVector operator+(const T &val);   // прибавить скаляр
+  TVector operator-(const T &val);   // вычесть скаляр
+  TVector operator*(const T &val);   // умножить на скаляр
 
-  TVector operator+(const TVector &v);     // Г±Г«Г®Г¦ГҐГ­ГЁГҐ
-  TVector operator-(const TVector &v);     // ГўГ»Г·ГЁГІГ Г­ГЁГҐ
-  T operator*(const TVector &v);     // Г±ГЄГ Г«ГїГ°Г­Г®ГҐ ГЇГ°Г®ГЁГ§ГўГҐГ¤ГҐГ­ГЁГҐ
+  TVector operator+(const TVector &v);     // сложение
+  TVector operator-(const TVector &v);     // вычитание
+  T operator*(const TVector &v);     // скалярное произведение
 
   template <class ValType1>
   friend istream& operator>>(istream &in, TVector<ValType1>& v);
@@ -37,7 +37,7 @@ template <class T>
 TVector<T>::TVector(int s)
 {
 	if (s < 0)
-		throw 1;
+		throw MyException("error size");
   else
     if (s == 0) 
     {
@@ -90,7 +90,7 @@ T& TVector<T>::operator[](int pos)
 	if (pos >= 0 && pos < size)
 		return vec[pos];
 	else
-		throw 1;
+		throw MyException("error index");
 } //-------------------------------------------------------------------------
 
 template <class T>
@@ -158,7 +158,7 @@ template <class T>
 TVector<T> TVector<T>::operator+(const TVector<T> &v)
 {
   if (size != v.size)
-    throw 1;
+    throw MyException("error size operand");
   TVector<T> rez(*this);
   for (int i = 0; i < size; i++)
     rez[i] = (*this)[i] + v.vec[i];
@@ -169,7 +169,7 @@ template <class T>
 TVector<T> TVector<T>::operator-(const TVector<T> &v)
 {
   if (size != v.size)
-    throw 1;
+    throw MyException("error size operand");
   TVector<T> rez(*this);
   for (int i = 0; i < size; i++)
     rez[i] = (*this)[i] - v.vec[i];
@@ -180,7 +180,7 @@ template <class T>
 T TVector<T>::operator*(const TVector<T> &v)
 {
   if (size != v.size)
-    throw 1;
+    throw MyException("error size operand");
   int temp = 0;
   for (int i = 0; i < size; i++)
     temp += vec[i] * v.vec[i];

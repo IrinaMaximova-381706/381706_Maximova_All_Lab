@@ -13,12 +13,35 @@ int main()
   cout << "V2: " << V2 << endl;
 
   cout << "\n\nArithmetic operations:\n\n";
+  try 
+  {
     R = V1 + V2;
     cout << "Result V1 + V2: " << R << endl;
+  }
+  catch (MyException exp)
+  {
+    exp.Print();
+  }
+
+  try 
+  {
     R = V1 - V2;
     cout << "Result V1 - V2: " << R << endl;
+  }
+  catch (MyException exp)
+  {
+    exp.Print();
+  }
+
+  try 
+  {
     int k = V1 * V2;
     cout << "Result V1 * V2: " << k << endl;
+  }
+  catch (MyException exp)
+  {
+    exp.Print();
+  }
 
   cout << "\n\nUsing input / output streams:\n";
   TVector <int> V(5);

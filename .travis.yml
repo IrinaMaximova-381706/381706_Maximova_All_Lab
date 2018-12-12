@@ -9,5 +9,6 @@ script:
   - cmake ../381706_Maximova_All_Lab
   - make -j
   - ./VectorTest/VectorTest
+  - ./MatrixTest/MatrixTest
 notifications:
   email: false
