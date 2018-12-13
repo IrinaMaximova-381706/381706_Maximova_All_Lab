@@ -3,7 +3,7 @@
 int main()
 {
   cout << "Creating matrix\n\n";
-  TMatrix<int> M1(3), M2(3), MT(3);
+  TMatrix<int> M1(3), M2(3), R(3);
   int k = 1;
   for (int i = 0; i < 3; i++)
     for (int j = 0; j < 3 - i; j++)
