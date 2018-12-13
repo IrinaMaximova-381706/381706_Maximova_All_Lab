@@ -3,7 +3,7 @@
 int main()
 {
   cout << "Creating matrix\n\n";
-  TMatrix<int> M1(3), M2(3), R(3);
+  TMatrix<int> M1(3), M2(3), R(3), MС(3);
   int k = 1;
   for (int i = 0; i < 3; i++)
     for (int j = 0; j < 3 - i; j++)
@@ -57,8 +57,7 @@ int main()
   }
 
   cout << "\n\nUsing input / output streams:\n";
-  TMatrix <int> MС(3);
   cin >> MС;
-  cout << "\nMatrix entered by you:" << endl << MС;
+  cout << "\nMatrix:" << endl << MС;
   return 0;
 }
