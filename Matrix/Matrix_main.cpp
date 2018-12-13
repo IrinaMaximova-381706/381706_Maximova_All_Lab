@@ -57,8 +57,8 @@ int main()
   }
 
   cout << "\n\nUsing input / output streams:\n";
-  TMatrix <int> MT(3);
-  cin >> MT;
-  cout << "\nMatrix entered by you:" << endl << MT;
+  TMatrix <int> MС(3);
+  cin >> MС;
+  cout << "\nMatrix entered by you:" << endl << MС;
   return 0;
 }
