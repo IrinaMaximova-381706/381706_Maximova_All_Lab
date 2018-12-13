@@ -3,13 +3,19 @@
 int main()
 {
   cout << "Creating matrix\n\n";
-  TMatrix<int> M1(5), M2(5), R(5);
-  for (int i = 0; i < 5; i++)
-    for (int j = 0; j < 5 - i; j++) 
-    {
-      M1[i][j] = (i + 1) * (j + 1);
-      M2[i][j] = (i * 10 + j + 3 + i) * 8;
-    }
+  TMatrix<int> M1(3), M2(3), MT(3);
+  int k = 1;
+  for (int i = 0; i < 3; i++)
+    for (int j = 0; j < 3 - i; j++)
+      M1[i][j] = k++;
+
+  M2[0][0] = 1;
+  M2[0][1] = 2;
+  M2[0][2] = 3;
+  M2[1][0] = 1;
+  M2[1][1] = 2;
+  M2[2][0] = 1;
+
   cout << "M1:" << endl << M1 << endl;
   cout << "\nM2:" << endl << M2 << endl;
 
