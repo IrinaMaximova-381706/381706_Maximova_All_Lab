@@ -8,23 +8,23 @@ template <class T>
 class TStack
 {
 protected:
-  int size; // Размер стека
-  int top;  // индекс вершины стека
-  T* mas;   // Указатель на область памяти для хранения стека
+  int size; // ГђГ Г§Г¬ГҐГ° Г±ГІГҐГЄГ 
+  int top;  // ГЁГ­Г¤ГҐГЄГ± ГўГҐГ°ГёГЁГ­Г» Г±ГІГҐГЄГ 
+  T* mas;   // Г“ГЄГ Г§Г ГІГҐГ«Гј Г­Г  Г®ГЎГ«Г Г±ГІГј ГЇГ Г¬ГїГІГЁ Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї Г±ГІГҐГЄГ 
 public:
-  TStack(int n = 0);             // конструктор инициализации
-  TStack(TStack<T> &S);          // конструктор копирования
-  virtual ~TStack();             // деструктор
-  int GetSize();                 // размер
-  T Get();                       // возвращает элемент, расположенный на вершине стека
-  void Put(T A);                 // положить элемент
-  bool IsFull();                 // проверка на полноту
-  bool IsEmpty();                // проверка на пустоту
-  void PrintStack();             // вывод стека на экран
+  TStack(int n = 0);             // ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г° ГЁГ­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГЁ
+  TStack(TStack<T> &S);          // ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г° ГЄГ®ГЇГЁГ°Г®ГўГ Г­ГЁГї
+  virtual ~TStack();             // Г¤ГҐГ±ГІГ°ГіГЄГІГ®Г°
+  int GetSize();                 // Г°Г Г§Г¬ГҐГ°
+  T Get();                       // ГўГ®Г§ГўГ°Г Г№Г ГҐГІ ГЅГ«ГҐГ¬ГҐГ­ГІ, Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г­Г»Г© Г­Г  ГўГҐГ°ГёГЁГ­ГҐ Г±ГІГҐГЄГ 
+  void Put(T A);                 // ГЇГ®Г«Г®Г¦ГЁГІГј ГЅГ«ГҐГ¬ГҐГ­ГІ
+  bool IsFull();                 // ГЇГ°Г®ГўГҐГ°ГЄГ  Г­Г  ГЇГ®Г«Г­Г®ГІГі
+  bool IsEmpty();                // ГЇГ°Г®ГўГҐГ°ГЄГ  Г­Г  ГЇГіГ±ГІГ®ГІГі
+  void PrintStack();             // ГўГ»ГўГ®Г¤ Г±ГІГҐГЄГ  Г­Г  ГЅГЄГ°Г Г­
 
-  int operator!=(const TStack<T>& stack) const; // проверка на неравенство
-  int operator==(const TStack<T>& stack) const; //проверка на равенство
-  TStack& operator=(const TStack<T>& stack); // приравнивание
+  int operator!=(const TStack<T>& stack) const; // ГЇГ°Г®ГўГҐГ°ГЄГ  Г­Г  Г­ГҐГ°Г ГўГҐГ­Г±ГІГўГ®
+  int operator==(const TStack<T>& stack) const; //ГЇГ°Г®ГўГҐГ°ГЄГ  Г­Г  Г°Г ГўГҐГ­Г±ГІГўГ®
+  TStack& operator=(const TStack<T>& stack); // ГЇГ°ГЁГ°Г ГўГ­ГЁГўГ Г­ГЁГҐ
 };
 
 template <class T>
@@ -43,7 +43,8 @@ TStack<T>::TStack(int n)
     size = n;
     top = 0;
     mas = new T[size];
-    memset(mas, size, 0);
+    for(int i = 0; i < size; i++)
+      mas[i] = 0;
   }
 }//-------------------------------------------------------------------------
 
