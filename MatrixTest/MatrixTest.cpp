@@ -116,7 +116,7 @@ TEST(Matrix, can_subtraction_matrix)
 {
   TMatrix <int> M1(2), M2(2), MT(2);
   for (int i = 0; i < 2; i++)
-    for (int j = 0; j < 2 - i; j++) 
+    for (int j = 0; j < 2 - i; j++)
     {
       M1[i][j] = i + j;
       M2[i][j] = i + j + 2;
@@ -146,6 +146,33 @@ TEST(Matrix, can_multiplication_matrix)
   MT[1][0] = 36; MT[1][1] = 109;
   MT[2][0] = 78;
   ASSERT_TRUE(MT == (M1 * M2));
+}
+
+TEST(Matrix, can_delit_matrix)
+{
+  TMatrix<int> M1(3), M2(3), MT(3);
+  int k = 1;
+  for (int i = 0; i < 3; i++)
+    for (int j = 0; j < 3 - i; j++)
+      M1[i][j] = k++;
+
+  M2[0][0] = 1;
+  M2[0][1] = 2;
+  M2[0][2] = 3;
+  M2[1][0] = 1;
+  M2[1][1] = 2;
+  M2[2][0] = 1;
+
+  MT[0][0] = 1; MT[0][1] = 0; MT[0][2] = 0;
+  MT[1][0] = 4; MT[1][1] = -3;
+  MT[2][0] = 6;
+  ASSERT_TRUE(MT == (M1 / M2));
+}
+
+TEST(Matrix, thorws_when_delit_matrix_with_diff_size)
+{
+  TMatrix <int> M1(2), M2(3);
+  ASSERT_ANY_THROW(M1 / M2);
 }
 
 TEST(Matrix, thorws_when_multiplication_matrix_with_diff_size)
