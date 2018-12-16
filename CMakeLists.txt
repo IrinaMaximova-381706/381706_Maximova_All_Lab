@@ -13,6 +13,14 @@ set(Matrix Matrix)
 set(MatrixLib Matrixlib)
 set(MatrixTest MatrixTest)
 
+set(Stack Stack)
+set(StackLib StackLib)
+set(StackTest StackTest)
+
+set(Queue Queue)
+set(QueueLib QueueLib)
+set(QueueTest QueueTest)
+
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
 if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компилятора вариантов сборки
   set(CMAKE_BUILD_TYPE Release) #Если нет то устанавливаем Release
@@ -36,6 +44,16 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MatrixLib)
 add_subdirectory(Matrix)
 add_subdirectory(MatrixLib)
 add_subdirectory(MatrixTest)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackLib)
+add_subdirectory(Stack)
+add_subdirectory(StackLib)
+add_subdirectory(StackTest)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/QueueLib)
+add_subdirectory(Queue)
+add_subdirectory(QueueLib)
+add_subdirectory(QueueTest)
 
 #add_executable(${PROJECT_NAME} ${srcs} ${hdrs}) #Создаем проект с именем из переменной ${PROJECT_NAME}, в него добавляются файлы из переменных ${srcs} и ${hdrs}
 #add_subdirectory(Lift_lib) #Собираем проект в поддиректории lib1
