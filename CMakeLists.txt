@@ -25,6 +25,10 @@ set(ArrList ArrList)
 set(ArrListLib ArrListLib)
 set(ArrListTest ArrListTest)
 
+set(List List)
+set(ListLib ListLib)
+set(ListTest ListTest)
+
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
 if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компилятора вариантов сборки
@@ -64,6 +68,11 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ArrListLib)
 add_subdirectory(ArrList)
 add_subdirectory(ArrListLib)
 add_subdirectory(ArrListTest)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
+add_subdirectory(List)
+add_subdirectory(ListLib)
+add_subdirectory(ListTest)
 
 
 #add_executable(${PROJECT_NAME} ${srcs} ${hdrs}) #Создаем проект с именем из переменной ${PROJECT_NAME}, в него добавляются файлы из переменных ${srcs} и ${hdrs}
