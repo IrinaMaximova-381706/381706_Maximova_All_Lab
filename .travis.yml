@@ -10,7 +10,7 @@ script:
   - make -j
   - ./VectorTest/VectorTest
   - ./MatrixTest/MatrixTest
-  - ./StackTest/StackTeTest
+  - ./StackTest/StackTest
   - ./QueueTest/QueueTest
   - ./ListTest/ListTest
   - ./ArrListTest/ArrListTest
