@@ -120,3 +120,61 @@ TEST(ArrList, true_posledovatelnost_vivoda)
   ASSERT_EQ(3, L.GetStart());   // 1
   ASSERT_EQ(1, L.GetEnd());     // empty
 }
+
+TEST(ArrList, throws_when_in_empty_list_get_elem)
+{
+  TArrList <int> L(10);
+  ASSERT_ANY_THROW(L.Get(3));
+}
+
+TEST(ArrList, throws_when_in_full_list_put_elem)
+{
+  TArrList <int> L(3);
+  L.PutEnd(1);
+  L.PutEnd(1);
+  L.PutEnd(1);
+
+  ASSERT_ANY_THROW(L.Put(1, 6));
+}
+
+TEST(ArrList, throws_when_incurrent_index_when_list_put_elem)
+{
+  TArrList <int> L(4);
+  L.PutEnd(1);
+  L.PutEnd(1);
+  L.PutEnd(1);
+
+  ASSERT_ANY_THROW(L.Put(10, 6));
+}
+
+TEST(ArrList, throws_when_incurrent_index_when_list_get_elem)
+{
+  TArrList <int> L(3);
+  L.PutEnd(1);
+  L.PutEnd(1);
+  L.PutEnd(1);
+
+  ASSERT_ANY_THROW(L.Get(10));
+}
+
+TEST(ArrList, can_get_elem)
+{
+  TArrList <int> L(3);
+  L.PutEnd(1);
+  L.PutEnd(2);
+  L.PutEnd(3);
+
+  ASSERT_EQ(L.Get(1), 2);
+}
+
+TEST(ArrList, can_put_elem)
+{
+  TArrList <int> L(4);
+  L.PutEnd(1);
+  L.PutEnd(2);
+  L.PutEnd(3);
+  L.Put(2, 10);
+
+  ASSERT_EQ(L.Get(1), 2);
+  ASSERT_EQ(L.Get(1), 10);
+}

@@ -9,13 +9,12 @@ protected:
 public:
   TElem<T>(T _data = 0, TElem<T>* n = 0);
   TElem<T>(TElem<T>& A);
-
   T GetData();
   TElem<T>* GetNext();
   void SetData(T _data);
   void SetNext(TElem<T>* n);
 };
-//-------------------------------------------------------------------------------------------------
+
 template <class T>
 TElem<T>::TElem(T _data, TElem<T>* n)
 {

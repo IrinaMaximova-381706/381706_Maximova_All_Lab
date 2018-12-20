@@ -3,10 +3,10 @@
 #include "Queue.h"
 
 template <class T>
-class TArrList 
+class TArrList
 {
 private:
-  T* mas;
+  T* mas;                    //Массив элементов списка
   int *nextInd;              //Массив индексов, указывающих на следюущий элемент списка
   int *predInd;              //Массив индексов, указывающих на предыдущий элемент списка
   int size;                  //Размер списка
@@ -18,6 +18,8 @@ public:
   TArrList(int _size = 10);  //Конструктор с параметром
   TArrList(TArrList<T> &A);  //Конструктор копирования
   ~TArrList();               //Деструктор
+  void Put(int n, T elem);   //Добавить промежуточный элемент
+  T Get(int n);              //Извлечь промежутьчный элемент 
   void PutStart(T elem);     //Положить в начало списка
   void PutEnd(T elem);       //Положить в конец списка 
   T GetStart();              //Забрать из начала списка с удалением
@@ -74,6 +76,48 @@ inline TArrList<T>::~TArrList()
   delete[] predInd;
 }//-----------------------------------------------------------------
 
+template<class T>
+void TArrList<T>::Put(int n, T elem)
+{
+  if (IsFull())
+    throw MyException("error. List is full");
+  if (n < 1 || n > count - 1)
+    throw MyException("error. Uncurrent index");
+  int ifree = freeElem.Get();
+  mas[ifree] = elem;
+  int one = start;
+  int two = nextInd[start];
+  for (int i = 0; i < n - 1; i++)
+  {
+    one = two;
+    two = nextInd[two];
+  }
+  nextInd[ifree] = two;
+  nextInd[one] = ifree;
+
+  predInd[ifree] = one;
+  predInd[two] = ifree;
+  count++;
+}//-----------------------------------------------------------------
+
+template<class T>
+T TArrList<T>::Get(int n)
+{
+  if (IsEmpty())
+    throw MyException("error. List is empty");
+  if (n < 1 || n > count - 1)
+    throw MyException("error. Uncurrent index");
+  int ind = start;
+  for (int i = 0; i < n; i++)
+    ind = nextInd[ind];
+  nextInd[predInd[ind]] = nextInd[ind];
+  predInd[nextInd[ind]] = predInd[ind];
+  T temp = mas[ind];
+  freeElem.Put(ind);
+  count--;
+  return temp;
+}//-----------------------------------------------------------------
+
 template <class T>
 void TArrList<T>::PutStart(T elem)
 {
@@ -116,8 +160,8 @@ T TArrList<T>::GetStart()
     throw MyException("error. List is empty");
   T elem = mas[start];
   freeElem.Put(start);
-  nextInd[start] = predInd[start] = -2;
   int newstart = nextInd[start];
+  nextInd[start] = predInd[start] = -2;
   if (newstart != -1)
     predInd[newstart] = -1;
   count--;

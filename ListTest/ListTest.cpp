@@ -46,6 +46,21 @@ TEST(Elem, can_copy_elem)
 }
 
 
+/*TEST(List, can_check_full_true)
+{
+  TList<int> list;
+  try
+  {
+    while (1)
+      list.PutEnd(1);
+  }
+  catch (...)
+  {
+    ASSERT_TRUE(list.IsFull());
+  }
+}*/
+
+
 TEST(List, can_check_empty_true)
 {
   TList<int> list;
@@ -59,10 +74,10 @@ TEST(List, can_check_empty_false)
   ASSERT_FALSE(list.IsEmpty());
 }
 
-TEST(List, can_check_full_true)
+TEST(List, can_check_full_false)
 {
   TList<int> list;
-  ASSERT_TRUE(list.IsFull());
+  ASSERT_FALSE(list.IsFull());
 }
 
 TEST(List, can_get_begin)
@@ -120,6 +135,76 @@ TEST(List, can_put_end)
   ASSERT_EQ(list.GetBegin(), 2);
   ASSERT_EQ(list.GetBegin(), 3);
 }
+
+TEST(List, can_get_size_no_zero)
+{
+  TList<int> list;
+  list.PutBegin(1);
+  list.PutBegin(1);
+
+  ASSERT_EQ(list.GetSize(), 2);
+}
+
+TEST(List, can_get_size_zero)
+{
+  TList<int> list;
+
+  ASSERT_EQ(list.GetSize(), 0);
+}
+
+TEST(List, throw_get_elem_to_index_when_list_is_empty)
+{
+  TList<int> list;
+
+  ASSERT_ANY_THROW(list.Get(1));
+}
+
+TEST(List, throw_get_elem_to_incorrent_index)
+{
+  TList<int> list;
+  list.PutBegin(1);
+  list.PutBegin(1);
+  list.PutBegin(1);
+
+  ASSERT_ANY_THROW(list.Get(0));
+  ASSERT_ANY_THROW(list.Get(3));
+}
+
+TEST(List, can_get_elem_to_index)
+{
+  TList<int> list;
+  list.PutBegin(1);
+  list.PutBegin(2);
+  list.PutBegin(3);
+
+  ASSERT_EQ(list.Get(1), 2);
+}
+
+TEST(List, throw_put_elem_to_incorrent_index)
+{
+  TList<int> list;
+  list.PutBegin(1);
+  list.PutBegin(1);
+  list.PutBegin(1);
+
+  ASSERT_ANY_THROW(list.Put(0, 1));
+  ASSERT_ANY_THROW(list.Put(3, 1));
+}
+
+TEST(List, can_put_elem_to_index)
+{
+  TList<int> list;
+  list.PutEnd(1);
+  list.PutEnd(2);
+  list.PutEnd(3);
+  list.Put(1, 10);
+
+  ASSERT_EQ(list.Get(1), 10);
+  ASSERT_EQ(list.Get(1), 2);
+}
+
+
+
 
 TEST(List, throw_get_begin_and_get_end_when_list_is_empty)
 {
