@@ -147,6 +147,16 @@ TMonom TMonom::operator+(TMonom& A)
   return tmp;
 }
 
+TMonom TMonom::operator+=(TMonom & A)
+{
+  if (n != A.n)
+    throw MyException("Different n");
+  if (!(*this == A))
+    throw MyException("Different power");
+  coeff += A.coeff;
+  return *this;
+}
+
 TMonom TMonom::operator-(TMonom& A)
 {
   TMonom tmp(A);
@@ -156,6 +166,16 @@ TMonom TMonom::operator-(TMonom& A)
     throw MyException("Different power");
   tmp.coeff = coeff - A.coeff;
   return tmp;
+}
+
+TMonom TMonom::operator-=(TMonom & A)
+{
+  if (n != A.n)
+    throw MyException("Different n");
+  if (!(*this == A))
+    throw MyException("Different power");
+  coeff -= A.coeff;
+  return *this;
 }
 
 TMonom TMonom::operator*(TMonom& A)
