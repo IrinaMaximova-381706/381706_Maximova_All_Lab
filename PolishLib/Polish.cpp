@@ -91,11 +91,11 @@ double Rez(TQueue<char> q)
     if (A == '[')
     {
       A = q.Get();
-      double tmp = atof(&A);
+      double tmp = std::atof(&A);
       while (q.Top() != ']' && !q.IsEmpty())
       {
         A = q.Get();
-        tmp = tmp * 10 + atof(&A);
+        tmp = tmp * 10 + std::atof(&A);
       }
       q.Get();
       S.Put(tmp);

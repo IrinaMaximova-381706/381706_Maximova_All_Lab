@@ -53,7 +53,7 @@ TPolynom TPolynom::operator+(TPolynom &p)
     TMonom *t;
     if ((*i1) == (*i2))
     {
-      t = new TMonom((*i1) + (*i2));
+      t = new TMonom(((*i1) + (*i2)));
       if (t->GetC() == 0)
         continue;
       i1 = i1->GetNext();

@@ -31,7 +31,7 @@ TStackList<T>::TStackList(int _size) : TList<T>()
 template <class T>
 TStackList<T>::TStackList(TStackList<T> &A) : TList<T>(A)
 {
-  count = A.count;
+  TList<T>::count = A.count;
 }
 
 template<class T>
