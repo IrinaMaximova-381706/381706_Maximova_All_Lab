@@ -197,6 +197,16 @@ TMonom TMonom::operator*(TMonom& A)
   return tmp;
 }
 
+TMonom TMonom::operator*=(TMonom& A)
+{
+  if (n != A.n)
+    throw MyException("Different n");
+  coeff = coeff * A.coeff;
+  for (int i = 0; i < n; i++)
+    power[i] += A.power[i];
+  return *this;
+}
+
 bool TMonom::operator==(TMonom& A)
 {
   if (n != A.n)
