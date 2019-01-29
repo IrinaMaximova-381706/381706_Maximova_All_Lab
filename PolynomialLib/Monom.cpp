@@ -1,5 +1,13 @@
 #include "Monom.h"
 
+TMonom::TMonom()
+{
+  next = NULL;
+  power = NULL;
+  coeff = 0;
+  n = 0;
+}
+
 TMonom::TMonom(int _n, int* _power, double _c)
 {
   if (_n < 0)
