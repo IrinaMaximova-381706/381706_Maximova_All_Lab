@@ -1,0 +1,22 @@
+language: cpp
+compiler:
+  - gcc
+  - clang
+before_script:
+  - mkdir ../build
+  - cd ../build
+script:
+  - cmake ../381706_Maximova_All_Lab
+  - make -j
+  - ./VectorTest/VectorTest
+  - ./MatrixTest/MatrixTest
+  - ./StackTest/StackTest
+  - ./QueueTest/QueueTest
+  - ./ListTest/ListTest
+  - ./StackListTest/StackListTest
+  - ./ArrListTest/ArrListTest
+  - ./MultiStackTest/MultiStackTest
+  - ./PolynomialTest/PolynomialTest
+  - ./PolishTest/PolishTest
+notifications:
+  email: false
