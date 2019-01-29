@@ -6,17 +6,27 @@ before_script:
   - mkdir ../build
   - cd ../build
 script:
-  - cmake ../381706_Maximova_All_Lab
+  - cmake ../381706-1-Denisov-labs
   - make -j
+  - ./Vector/Vector
   - ./VectorTest/VectorTest
+  - ./Matrix/Matrix
   - ./MatrixTest/MatrixTest
+  - ./Stack/Stack
   - ./StackTest/StackTest
+  - ./Queue/Queue
   - ./QueueTest/QueueTest
+  - ./List/List
   - ./ListTest/ListTest
-  - ./ArrListTest/ArrListTest
-  - ./MultiStackTest/MultiStackTest
-  - ./PolishTest/PolishTest
-  - ./PolynomialTest/PolynomialTest
+  - ./StackList/StackList
   - ./StackListTest/StackListTest
+  - ./ArrList/ArrList
+  - ./ArrListTest/ArrListTest
+  - ./MultiStack/MultiStack
+  - ./MultiStackTest/MultiStackTest
+  - ./Polynomial/Polynomial
+  - ./PolynomialTest/PolynomialTest
+  - ./Polish/Polish
+  - ./PolishTest/PolishTest
 notifications:
   email: false
