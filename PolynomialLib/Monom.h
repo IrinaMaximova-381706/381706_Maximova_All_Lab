@@ -28,7 +28,7 @@ public:
   TMonom operator+(TMonom& A);
   TMonom operator+=(TMonom& A);
   TMonom operator*(TMonom& A);
-  TMonom TMonom::operator*=(TMonom& A)
+  TMonom TMonom::operator*=(TMonom& A);
   TMonom operator-(TMonom& A);
   TMonom operator-=(TMonom& A);
   bool operator==(TMonom& A);
