@@ -37,7 +37,7 @@ int main()
   p_two += F;
   cout << "Polynom two = D + E + F = " << p_two << endl;
 
-  TPolynom pol(3);
+  /*TPolynom pol(3);
   TPolynom polk(3);
  
   pol = p_one + p_two;
@@ -47,7 +47,7 @@ int main()
   cout << "Polynom one - two = " << pol << endl;
 
   pol = p_one * p_two;
-  cout << "Polynom one * two = " << pol << endl;
+  cout << "Polynom one * two = " << pol << endl;*/
 
  return 0;
 }
