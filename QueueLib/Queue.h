@@ -11,11 +11,12 @@ public:
   TQueue(int n = 0);     //Конструктор по умолчанию
   TQueue(TQueue <T> &q); //Конструктор копирования
   virtual ~TQueue();     //Деструктор
-
+  T Top();
   void Put(T a);         //Положить элемент
   T Get();               //Взять элемент
   bool IsFull();         //Проверка на полноту 
   bool IsEmpty();        //Проверка на пустоту
+  void Print();
 };
 
 template <class T>
@@ -35,6 +36,12 @@ TQueue<T>::TQueue(TQueue<T> &q) : TStack<T>(q)
 template <class T>
 TQueue<T>::~TQueue()
 {}//-----------------------------------------------------------------
+
+template<class T>
+inline T TQueue<T>::Top()
+{
+  return TStack<T>::mas[start];
+}//-----------------------------------------------------------------
 
 template <class T>
 void TQueue<T>::Put(T a)
@@ -77,4 +84,11 @@ bool TQueue<T>::IsEmpty()
   if (count == 0)
     return 1;
   return 0;
+}//-----------------------------------------------------------------
+
+template<class T>
+void TQueue<T>::Print()
+{
+  for (int i = start; i < TStack<T>::top; i = (i + 1) % TStack<T>::size)
+    cout << TStack<T>::mas[i];
 }//-----------------------------------------------------------------

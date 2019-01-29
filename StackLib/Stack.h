@@ -21,6 +21,7 @@ public:
   bool IsFull();                 // ïðîâåðêà íà ïîëíîòó
   bool IsEmpty();                // ïðîâåðêà íà ïóñòîòó
   void PrintStack();             // âûâîä ñòåêà íà ýêðàí
+  T Top(); 
 
   int operator!=(const TStack<T>& stack) const; // ïðîâåðêà íà íåðàâåíñòâî
   int operator==(const TStack<T>& stack) const; //ïðîâåðêà íà ðàâåíñòâî
@@ -116,10 +117,20 @@ bool TStack<T>::IsEmpty()
 template <class T>
 void TStack<T>::PrintStack()
 {
-
   for (int i = top - 1; i >= 0; i--)
     cout << " " << mas[i];
-}
+}//-------------------------------------------------------------------------
+
+template<class T>
+T TStack<T>::Top()
+{
+  if (IsEmpty())
+    throw "Empty";
+  else 
+  {
+    return mas[top - 1];
+  }
+}//-------------------------------------------------------------------------
 
 template <class T>
 TStack<T>& TStack<T>::operator=(const TStack<T>& s)

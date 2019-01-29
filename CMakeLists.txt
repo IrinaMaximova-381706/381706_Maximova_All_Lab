@@ -1,7 +1,7 @@
-﻿cmake_minimum_required(VERSION 2.8) #Проверка версии CMake.
+﻿cmake_minimum_required(VERSION 2.8)
 
-set(PROJECT_NAME All_Labs) #Создаем обычную локальную переменную с именем проекта
-project(${PROJECT_NAME}) # Название проекта
+set(PROJECT_NAME All_Labs) 
+project(${PROJECT_NAME}) 
 
 set(ExceptionLib ExceptionLib)
 
@@ -29,14 +29,28 @@ set(List List)
 set(ListLib ListLib)
 set(ListTest ListTest)
 
+set(MultiStack MultiStack)
+set(MultiStackLib MultiStackLib)
+set(MultiStackTest MultiStackTest)
+
+set(Polynomial Polynomial)
+set(PolynomialLib PolynomialLib)
+set(PolynomialTest PolynomialTest)
+
+set(StackList StackList)
+set(StackListLib StackListLib)
+set(StackListTest StackListTest)
+
+set(Polish Polish)
+set(PolishLib PolishLib)
+set(PolishTest PolishTest)
+
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
 if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компилятора вариантов сборки
   set(CMAKE_BUILD_TYPE Release) #Если нет то устанавливаем Release
 endif()
 
-#file(GLOB hdrs "*.h*") #Добавляем в переменную hdrs все файлы с расширением .h
-#file(GLOB srcs "*.cpp") #Добавляем в переменную srcs все файлы с расширением .cpp
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/gtest)
 add_subdirectory(gtest)
@@ -74,7 +88,26 @@ add_subdirectory(List)
 add_subdirectory(ListLib)
 add_subdirectory(ListTest)
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MultiStackLib)
+add_subdirectory(MultiStack)
+add_subdirectory(MultiStackLib)
+add_subdirectory(MultiStackTest)
 
-#add_executable(${PROJECT_NAME} ${srcs} ${hdrs}) #Создаем проект с именем из переменной ${PROJECT_NAME}, в него добавляются файлы из переменных ${srcs} и ${hdrs}
-#add_subdirectory(Lift_lib) #Собираем проект в поддиректории lib1
-#target_link_libraries(${PROJECT_NAME} ${Lift_lib}) #Подключаем к проекту с именем ${PROJECT_NAME} библиотеку с именем ${MyLib1}
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PolynomialLib)
+add_subdirectory(Polynomial)
+add_subdirectory(PolynomialLib)
+add_subdirectory(PolynomialTest)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackListLib)
+add_subdirectory(StackList)
+add_subdirectory(StackListLib)
+add_subdirectory(StackListTest)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PolishLib)
+add_subdirectory(Polish)
+add_subdirectory(PolishLib)
+add_subdirectory(PolishTest)
+
+
+
+
