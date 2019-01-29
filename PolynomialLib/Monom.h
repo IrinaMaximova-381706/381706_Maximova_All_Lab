@@ -4,10 +4,10 @@
 class TMonom
 {
 protected:
-  TMonom* next;  //óêàçàòåëü íà ñëåäóþùèé ìîíîì
-  int *power;    //ìàññèâ ñòåïåíåé
-  double coeff;  //êîýôôèöòåíò
-  int n;         //êîë-âî ïåðåìåííûõ â ìîíîìå
+  TMonom* next;  //ÑƒÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÑŒ Ð½Ð° ÑÐ»ÐµÐ´ÑƒÑŽÑ‰Ð¸Ð¹ Ð¼Ð¾Ð½Ð¾Ð¼
+  int *power;    //Ð¼Ð°ÑÑÐ¸Ð² ÑÑ‚ÐµÐ¿ÐµÐ½ÐµÐ¹
+  double coeff;  //ÐºÐ¾ÑÑ„Ñ„Ð¸Ñ†Ñ‚ÐµÐ½Ñ‚
+  int n;         //ÐºÐ¾Ð»-Ð²Ð¾ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ñ… Ð² Ð¼Ð¾Ð½Ð¾Ð¼Ðµ
 public:
   TMonom(int _n, int* _power, double _c);
   TMonom(TMonom& A);
@@ -25,8 +25,10 @@ public:
 
   TMonom& operator=(TMonom& A);
   TMonom operator+(TMonom& A);
+  TMonom operator+=(TMonom& A);
   TMonom operator*(TMonom& A);
   TMonom operator-(TMonom& A);
+  TMonom operator-=(TMonom& A);
   bool operator==(TMonom& A);
   bool operator>(TMonom& A);
   bool operator<(TMonom& A);
