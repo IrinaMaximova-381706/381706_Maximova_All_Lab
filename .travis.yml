@@ -6,7 +6,7 @@ before_script:
   - mkdir ../build
   - cd ../build
 script:
-  - cmake ../381706-1-Denisov-labs
+  - cmake ../381706_Maximova_All_Lab
   - make -j
   - ./Vector/Vector
   - ./VectorTest/VectorTest
