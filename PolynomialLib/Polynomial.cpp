@@ -54,7 +54,7 @@ TPolynom TPolynom::operator+(TPolynom &p)
     if ((*i1) == (*i2))
     {
       TMonom k;
-      k = (*i1) + (*i2);
+      k = ((*i1) + (*i2));
       t = new TMonom(k);
       if (t->GetC() == 0)
         continue;
