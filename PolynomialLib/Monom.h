@@ -9,6 +9,7 @@ protected:
   double coeff;  //коэффицтент
   int n;         //кол-во переменных в мономе
 public:
+  TMonom();
   TMonom(int _n, int* _power, double _c);
   TMonom(TMonom& A);
   virtual ~TMonom();
