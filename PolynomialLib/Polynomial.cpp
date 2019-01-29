@@ -53,9 +53,7 @@ TPolynom TPolynom::operator+(TPolynom &p)
     TMonom *t;
     if ((*i1) == (*i2))
     {
-      TMonom k;
-      k = (*i1) + (*i2);
-      t = new TMonom(k);
+      t = new TMonom(((*i1) + (*i2)));
       if (t->GetC() == 0)
         continue;
       i1 = i1->GetNext();
@@ -113,9 +111,7 @@ TPolynom TPolynom::operator-(TPolynom &p)
     TMonom *t;
     if ((*i1) == (*i2))
     {
-      TMonom k; 
-      k = (*i1) - (*i2);
-      t = new TMonom(k);
+      t = new TMonom((*i1) - (*i2));
       i1 = i1->GetNext();
       i2 = i2->GetNext();
     }
@@ -236,9 +232,7 @@ TPolynom TPolynom::operator*(TPolynom &p)
     {
       if (_pst->GetC() == 0)
         continue;
-      TMonom k;
-      k = (*_st) * (*_pst);
-      TMonom* f = new TMonom(k);
+      TMonom* f = new TMonom((*_st) * (*_pst));
       f->SetNext(NULL);
       rez += *f;
       _pst = _pst->GetNext();
