@@ -185,7 +185,7 @@ TPolynom& TPolynom::operator=(TPolynom &p)
     while (buf1 != 0)
     {
       buf1 = buf1->GetNext();
-      delete[] buf2;
+      delete buf2;
       TMonom  *buf2 = buf1;
     }
     buf1 = p.start->GetNext();
