@@ -28,7 +28,8 @@ TEST(Polish, can_check_is_op)
 TEST(Polish, can_convert_to_pol)
 {
   string A = "9+8";
-  TQueue<char> B(ConvertToPol(A));
+  TQueue<char> B;
+  B = ConvertToPol(A);
   ASSERT_EQ(B.Get(), '[');
   ASSERT_EQ(B.Get(), '9');
   ASSERT_EQ(B.Get(), ']');
@@ -41,14 +42,16 @@ TEST(Polish, can_convert_to_pol)
 TEST(Polish, can_add)
 {
   string A = "9+8";
-  TQueue<char> B(ConvertToPol(A));
+  TQueue<char> B;
+  B = ConvertToPol(A);
   EXPECT_EQ(17, Rez(B));
 }
 
 TEST(Poland, can_add_two_digit_number) 
 {
   string A = "43+57";
-  TQueue<char> B(ConvertToPol(A));
+  TQueue<char> B;
+  B = ConvertToPol(A);
 
   EXPECT_EQ(100, Rez(B));
 }
@@ -64,7 +67,8 @@ TEST(Poland, can_subtract)
 TEST(Poland, can_multiplication)
 {
   string A = "9*8";
-  TQueue<char> B(ConvertToPol(A));
+  TQueue<char> B;
+  B = ConvertToPol(A);
 
   EXPECT_EQ(72, Rez(B));
 }
@@ -72,7 +76,8 @@ TEST(Poland, can_multiplication)
 TEST(Poland, can_multiplication_3_param) 
 {
   string A = "9*8*2";
-  TQueue<char> B(ConvertToPol(A));
+  TQueue<char> B;
+  B = ConvertToPol(A);
 
   EXPECT_EQ(144, Rez(B));
 }
@@ -88,7 +93,8 @@ TEST(Poland, can_multiplication_and_add_whith_hooks)
 TEST(Poland, can_multiplication_and_add_whithout_hooks) 
 {
   string A = "9+8*2";
-  TQueue<char> B(ConvertToPol(A));
+  TQueue<char> B;
+  B = ConvertToPol(A);
 
   EXPECT_EQ(25, Rez(B));
 }
@@ -96,7 +102,8 @@ TEST(Poland, can_multiplication_and_add_whithout_hooks)
 TEST(Poland, can_split)
 {
   string A = "8/2";
-  TQueue<char> B(ConvertToPol(A));
+  TQueue<char> B;
+  B = ConvertToPol(A);
 
   EXPECT_EQ(4, Rez(B));
 }
@@ -104,7 +111,8 @@ TEST(Poland, can_split)
 TEST(Poland, can_multi_1) 
 {
   string A = "(43+57)*43";
-  TQueue<char> B(ConvertToPol(A));
+  TQueue<char> B;
+  B = ConvertToPol(A);
 
   EXPECT_EQ(4300, Rez(B));
 }
@@ -120,7 +128,8 @@ TEST(Poland, can_multi_2)
 TEST(Poland, can_multi_3) 
 {
   string A = "(43+57)/(20+5)";
-  TQueue<char> B(ConvertToPol(A));
+  TQueue<char> B;
+  B = ConvertToPol(A);
 
   EXPECT_EQ(4, Rez(B));
 }
@@ -128,7 +137,8 @@ TEST(Poland, can_multi_3)
 TEST(Poland, can_multi_with_negative_first_number) 
 {
   string A = "-5+(43+57)/20";
-  TQueue<char> B(ConvertToPol(A));
+  TQueue<char> B;
+  B = ConvertToPol(A);
 
   EXPECT_EQ(0, Rez(B));
 }
