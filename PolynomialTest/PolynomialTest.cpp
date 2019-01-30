@@ -293,7 +293,7 @@ TEST(TPolynom, assign_operator_polynoms_work)
   TPolynom Q(3);
   Q += B;
   Q += D;
-  /*ASSERT_NO_THROW(P = Q);
+  ASSERT_NO_THROW(P = Q);
  /* TMonom* a = P.GetStart();
   ASSERT_TRUE(*a == D);
   ASSERT_EQ(3, a->GetC());
