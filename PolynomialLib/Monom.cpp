@@ -35,7 +35,7 @@ TMonom::TMonom(int _n, int* _power, double _c)
   }
 }
 
-TMonom::TMonom(TMonom &A)
+TMonom::TMonom(const TMonom &A)
 {
   n = A.n;
   coeff = A.coeff;
