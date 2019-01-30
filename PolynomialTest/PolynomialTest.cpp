@@ -293,8 +293,7 @@ TEST(TPolynom, assign_operator_polynoms_work)
   TPolynom Q(3);
   Q += B;
   Q += D;
-  EXPECT_NO_THROW(P = Q);
- /* ASSERT_NO_THROW(P = Q);
+  P = Q;
   TMonom* a = P.GetStart();
   ASSERT_TRUE(*a == D);
   ASSERT_EQ(3, a->GetC());
@@ -302,7 +301,7 @@ TEST(TPolynom, assign_operator_polynoms_work)
   ASSERT_TRUE(*a == B);
   ASSERT_EQ(2, a->GetC());
   a = a->GetNext();
-  ASSERT_TRUE(a == 0);*/
+  ASSERT_TRUE(a == 0);
 }
 
 TEST(TPolynom, throws_when_assign_monoms_with_different_n)
