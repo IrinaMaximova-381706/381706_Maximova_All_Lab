@@ -201,7 +201,7 @@ TPolynom& TPolynom::operator=(const TPolynom &p)
   }
 }
 
-bool TPolynom::operator==(TPolynom &p)
+bool TPolynom::operator==(const TPolynom &p)
 {
   if (this->n != p.n)
     throw MyException("Different size");
