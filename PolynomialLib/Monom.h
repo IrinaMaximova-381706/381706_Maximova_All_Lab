@@ -24,7 +24,7 @@ public:
   void SetC(double _c);
   void SetN(int _n);
 
-  TMonom& operator=(TMonom& A);
+  TMonom& operator=(const TMonom& A) const;
   TMonom operator+(TMonom& A);
   TMonom operator+=(TMonom& A);
   TMonom operator*(TMonom& A);
