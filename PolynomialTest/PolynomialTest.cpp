@@ -311,7 +311,7 @@ TEST(TPolynom, throws_when_assign_monoms_with_different_n)
   ASSERT_ANY_THROW(P = Q);
 }
 
-/*TEST(TPolynom, can_equivalence_polynoms)
+TEST(TPolynom, can_equivalence_polynoms_now)
 {
   TPolynom P(3);
   P += A;
@@ -322,13 +322,13 @@ TEST(TPolynom, throws_when_assign_monoms_with_different_n)
   ASSERT_FALSE(P == Q);
   Q = P;
   ASSERT_TRUE(P == Q);
-  TMonom M(3, ms1, 2);
-  TPolynom J(3);
-  J += A;
-  TPolynom K(3);
-  K += M;
-  ASSERT_FALSE(J == K);
-}*/
+  //TMonom M(3, ms1, 2);
+  //TPolynom J(3);
+  //J += A;
+  //TPolynom K(3);
+ // K += M;
+ // ASSERT_FALSE(J == K);
+}
 
 TEST(TPolynom, trows_when_equivalence_polynoms_with_different_n)
 {
@@ -416,3 +416,5 @@ TEST(TPolynom, trows_when_minus_eq_different_polynoms)
   TPolynom P(3);
   ASSERT_ANY_THROW(P -= C);
 }
+
+
