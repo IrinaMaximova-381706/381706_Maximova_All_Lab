@@ -172,7 +172,7 @@ TPolynom TPolynom::operator-(TPolynom &p)
   return rez;
 }
 
-TPolynom& TPolynom::operator=(TPolynom &p)
+TPolynom& TPolynom::operator=(const TPolynom &p)
 {
   if (*this == p)
     return *this;
