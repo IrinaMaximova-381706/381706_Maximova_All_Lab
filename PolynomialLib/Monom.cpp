@@ -186,7 +186,7 @@ TMonom TMonom::operator-=(TMonom & A)
   return *this;
 }
 
-TMonom TMonom::operator*(TMonom& A)
+TMonom TMonom::operator*(const TMonom& A) const
 {
   if (n != A.n)
     throw MyException("Different n");
