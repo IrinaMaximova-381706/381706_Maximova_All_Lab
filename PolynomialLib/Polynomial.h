@@ -15,7 +15,7 @@ public:
   TMonom* GetStart();
   TPolynom operator-(TPolynom &p);
   TPolynom operator+(TPolynom &p);
-  TPolynom& operator=(TPolynom &p);
+  TPolynom& operator=(const TPolynom &p);
   bool operator==(TPolynom &p);
   TPolynom operator*(TPolynom &p);
   TPolynom& operator+=(TMonom &m);
