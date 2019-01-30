@@ -27,7 +27,7 @@ public:
   TMonom& operator=(const TMonom& A);
   TMonom operator+(TMonom& A);
   TMonom operator+=(TMonom& A);
-  TMonom operator*(TMonom& A);
+  TMonom operator*(const TMonom& A) const;
   TMonom operator*=(TMonom& A);
   TMonom operator-(TMonom& A);
   TMonom operator-=(TMonom& A);
