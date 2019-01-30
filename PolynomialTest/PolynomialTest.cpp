@@ -273,16 +273,16 @@ TEST(TPolynom, can_minus_equal_polynoms)
   Q += D;
   ASSERT_NO_THROW(P - Q);
   TPolynom C(3);
- // C = P - Q;
- // TMonom* a = C.GetStart();
- // ASSERT_EQ(2, C.GetSize());
- // ASSERT_TRUE(*a == D);
- // ASSERT_TRUE(a->GetC() == -3);
- // a = a->GetNext();
- // ASSERT_TRUE(*a == B);
- // ASSERT_TRUE(a->GetC() == 2);
- // a = a->GetNext();
- // ASSERT_TRUE(a == 0);
+ /* C = P - Q;
+  TMonom* a = C.GetStart();
+  ASSERT_EQ(2, C.GetSize());
+  ASSERT_TRUE(*a == D);
+  ASSERT_TRUE(a->GetC() == -3);
+  a = a->GetNext();
+  ASSERT_TRUE(*a == B);
+  ASSERT_TRUE(a->GetC() == 2);
+  a = a->GetNext();
+  ASSERT_TRUE(a == 0);*/
 }
 
 TEST(TPolynom, assign_operator_polynoms_work)
@@ -293,15 +293,16 @@ TEST(TPolynom, assign_operator_polynoms_work)
   TPolynom Q(3);
   Q += B;
   Q += D;
- // ASSERT_NO_THROW(P = Q);
- // TMonom* a = P.GetStart();
- // ASSERT_TRUE(*a == D);
- // ASSERT_EQ(3, a->GetC());
- // a = a->GetNext();
- // ASSERT_TRUE(*a == B);
- // ASSERT_EQ(2, a->GetC());
- // a = a->GetNext();
- // ASSERT_TRUE(a == 0);
+  EXPECT_NO_THROW(P = Q);
+ /* ASSERT_NO_THROW(P = Q);
+  TMonom* a = P.GetStart();
+  ASSERT_TRUE(*a == D);
+  ASSERT_EQ(3, a->GetC());
+  a = a->GetNext();
+  ASSERT_TRUE(*a == B);
+  ASSERT_EQ(2, a->GetC());
+  a = a->GetNext();
+  ASSERT_TRUE(a == 0);*/
 }
 
 TEST(TPolynom, throws_when_assign_monoms_with_different_n)
@@ -353,15 +354,15 @@ TEST(TPolynom, can_multiply_equal_polynoms)
  // ASSERT_EQ(2, Rez.GetSize());
 
   TMonom* a = Rez.GetStart();
- // TMonom AB = A * B;
- // TMonom AD = A * D;
- // ASSERT_TRUE(*a == AD);
- // ASSERT_EQ(a->GetC(), 3);
- // a = a->GetNext();
- // ASSERT_TRUE(*a == AB);
- // ASSERT_EQ(a->GetC(), 2);
- // a = a->GetNext();
- // ASSERT_TRUE(a == NULL);
+ /* TMonom AB = A * B;
+  TMonom AD = A * D;
+  ASSERT_TRUE(*a == AD);
+  ASSERT_EQ(a->GetC(), 3);
+  a = a->GetNext();
+  ASSERT_TRUE(*a == AB);
+  ASSERT_EQ(a->GetC(), 2);
+  a = a->GetNext();
+  ASSERT_TRUE(a == NULL);*/
 }
 
 TEST(TPolynom, trows_when_multiply_different_polynoms)
