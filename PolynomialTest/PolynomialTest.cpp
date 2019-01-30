@@ -100,8 +100,8 @@ TEST(TMonom, can_add_equal_monoms)
   TMonom Z(3, ms1, 1.0);
   ASSERT_NO_THROW(X + Z);
   TMonom Y(3, ms1, 1);
-  //Y = X + Z;
-  //ASSERT_EQ(4.6, Y.GetC());
+  Y = X + Z;
+  ASSERT_EQ(4.6, Y.GetC());
 }
 
 TEST(TMonom, trows_when_add_different_monoms)
