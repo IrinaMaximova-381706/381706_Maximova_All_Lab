@@ -167,6 +167,7 @@ void TMStack<T>::Repack(int _n)
         new_start[i][j] = old_start[i][j];
     else
     {
+      int s;
       for (s = i + 1; s < n; s++)
         if (new_start[s] <= old_start[s])
           break;
