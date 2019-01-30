@@ -11,7 +11,7 @@ protected:
 public:
   TMonom();
   TMonom(int _n, int* _power, double _c);
-  TMonom(TMonom& A);
+  TMonom(const TMonom& A);
   virtual ~TMonom();
 
   TMonom* GetNext();
