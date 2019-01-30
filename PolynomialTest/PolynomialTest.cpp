@@ -320,8 +320,8 @@ TEST(TPolynom, can_equivalence_polynoms_now)
   Q += B;
   Q += D;
   ASSERT_FALSE(P == Q);
-  Q = P;
-  /*ASSERT_TRUE(P == Q);
+  /*Q = P;
+  ASSERT_TRUE(P == Q);
   TMonom M(3, ms1, 2);
   TPolynom J(3);
   J += A;
