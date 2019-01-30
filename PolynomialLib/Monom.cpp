@@ -130,7 +130,7 @@ void TMonom::SetN(int _n)
   }
 }
 
-TMonom& TMonom::operator=(const TMonom& A) const
+const TMonom& TMonom::operator=(const TMonom& A)
 {
   if (n != A.n)
     throw MyException("Error size eq");
