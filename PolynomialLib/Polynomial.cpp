@@ -181,14 +181,13 @@ TPolynom& TPolynom::operator=(TPolynom &p)
   else
   {
     size = p.size;
-   // TMonom *buf1 = start, *buf2 = start;
-   // while (buf1 != 0)
-   // {
-   //   buf1 = buf1->GetNext();
-   //   delete[] buf2;
-   //   buf2 = buf1;
-   // }
-    TMonom *buf1, *buf2;
+    TMonom *buf1 = start, *buf2 = start;
+    while (buf1 != 0)
+    {
+      buf1 = buf1->GetNext();
+      delete[] buf2;
+      TMonom  *buf2 = buf1;
+    }
     buf1 = p.start->GetNext();
     buf2 = new TMonom(*p.start);
     start = buf2;
