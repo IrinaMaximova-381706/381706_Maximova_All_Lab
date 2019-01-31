@@ -13,10 +13,6 @@ script:
   - ./StackTest/StackTest
   - ./QueueTest/QueueTest
   - ./ListTest/ListTest
-  - ./StackListTest/StackListTest
   - ./ArrListTest/ArrListTest
-  - ./MultiStackTest/MultiStackTest
-  - ./PolynomialTest/PolynomialTest
-  - ./PolishTest/PolishTest
 notifications:
   email: false
