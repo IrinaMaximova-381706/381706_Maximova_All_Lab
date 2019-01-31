@@ -68,7 +68,7 @@ TEST(Queue, check_circular_put_in_queue)
 }
 
 
-TEST(Stack, Poryadok_vivoda)
+TEST(Queue, Poryadok_vivoda)
 {
   TQueue<int> S(3);
   S.Put(1), S.Put(2), S.Put(3);

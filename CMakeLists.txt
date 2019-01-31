@@ -10,7 +10,7 @@ set(VectorLib VectorLib)
 set(VectorTest VectorTest)
 
 set(Matrix Matrix)
-set(MatrixLib Matrixlib)
+set(MatrixLib MatrixLib)
 set(MatrixTest MatrixTest)
 
 set(Stack Stack)

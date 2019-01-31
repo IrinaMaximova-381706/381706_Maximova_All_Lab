@@ -18,20 +18,20 @@ int GetPrt(const char op)
   case '/':
     return 3;
   default:
-    return -1;
+    throw MyException("error. Uncurrent symbol.");;
   }
-}
+}//-----------------------------------------------------------------
 
 bool IsOp(char a)
 {
   return (a == '+' || a == '-' || a == '*' || a == '/' || a == '(' || a == ')');
-}
+}//-----------------------------------------------------------------
 
-TQueue<char> ConvertToPol(string s)
+TQueue<char> ConvertToPol(TString s)
 {
-  TQueue<char> Q(s.size() * 3);
-  TStack<char> S(s.size() * 3);
-  for (int i = 0; i < s.size(); i++)
+  TQueue<char> Q(s.GetLength() * 3);
+  TStack<char> S(s.GetLength() * 3);
+  for (int i = 0; i < s.GetLength(); i++)
   {
     if (i == 0)
       if (s[0] == '-') 
@@ -43,7 +43,7 @@ TQueue<char> ConvertToPol(string s)
     if (isdigit(s[i]))
     {
       Q.Put('[');
-      while ((i < s.size()) && isdigit(s[i + 1]))
+      while ((i < s.GetLength()) && isdigit(s[i + 1]))
       {
         Q.Put(s[i]);
         i++;
@@ -80,7 +80,7 @@ TQueue<char> ConvertToPol(string s)
   while (!S.IsEmpty())
     Q.Put(S.Get());
   return Q;
-}
+}//-----------------------------------------------------------------
 
 double Rez(TQueue<char> q)
 {
@@ -119,4 +119,4 @@ double Rez(TQueue<char> q)
   }
   res = S.Get();
   return res;
-}
+}//-----------------------------------------------------------------

@@ -28,8 +28,8 @@ int main()
     mst.Set(2, 10);
 
     mst.PrintMStack();
-
   }
+
   catch (MyException exp)
   {
     exp.Print();

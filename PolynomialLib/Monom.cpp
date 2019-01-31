@@ -6,7 +6,7 @@ TMonom::TMonom()
   power = NULL;
   coeff = 0;
   n = 0;
-}
+}// ---------------------------------------------------------------------------
 
 TMonom::TMonom(int _n, int* _power, double _c)
 {
@@ -33,7 +33,7 @@ TMonom::TMonom(int _n, int* _power, double _c)
         throw MyException("Negative power");
     }
   }
-}
+}// ---------------------------------------------------------------------------
 
 TMonom::TMonom(const TMonom &A)
 {
@@ -45,7 +45,7 @@ TMonom::TMonom(const TMonom &A)
   {
     power[i] = A.power[i];
   }
-}
+}// ---------------------------------------------------------------------------
 
 TMonom::~TMonom()
 {
@@ -54,32 +54,32 @@ TMonom::~TMonom()
   n = 0;
   coeff = 0;
   next = 0;
-}
+}// ---------------------------------------------------------------------------
 
 TMonom* TMonom::GetNext()
 {
   return next;
-}
+}// ---------------------------------------------------------------------------
 
 int* TMonom::GetPower()
 {
   return power;
-}
+}// ---------------------------------------------------------------------------
 
 double TMonom::GetC()
 {
   return coeff;
-}
+}// ---------------------------------------------------------------------------
 
 int TMonom::GetN()
 {
   return n;
-}
+}// ---------------------------------------------------------------------------
 
 void TMonom::SetNext(TMonom* _next)
 {
   next = _next;
-}
+}// ---------------------------------------------------------------------------
 
 void TMonom::SetPower(int* _power)
 {
@@ -90,12 +90,12 @@ void TMonom::SetPower(int* _power)
     else
       throw MyException("Negative power");
   }
-}
+}// ---------------------------------------------------------------------------
 
 void TMonom::SetC(double _c)
 {
   coeff = _c;
-}
+}// ---------------------------------------------------------------------------
 
 void TMonom::SetN(int _n)
 {
@@ -128,7 +128,7 @@ void TMonom::SetN(int _n)
         power[i] = tmp[i];
     n = _n;
   }
-}
+}// ---------------------------------------------------------------------------
 
 TMonom& TMonom::operator=(const TMonom& A)
 {
@@ -142,7 +142,7 @@ TMonom& TMonom::operator=(const TMonom& A)
   for (int i = 0; i < n; i++)
     power[i] = A.power[i];
   return *this;
-}
+}// ---------------------------------------------------------------------------
 
 TMonom TMonom::operator+(TMonom& A)
 {
@@ -153,7 +153,7 @@ TMonom TMonom::operator+(TMonom& A)
     throw MyException("Different power");
   tmp.coeff = coeff + A.coeff;
   return tmp;
-}
+}// ---------------------------------------------------------------------------
 
 TMonom TMonom::operator+=(TMonom & A)
 {
@@ -163,7 +163,7 @@ TMonom TMonom::operator+=(TMonom & A)
     throw MyException("Different power");
   coeff += A.coeff;
   return *this;
-}
+}// ---------------------------------------------------------------------------
 
 TMonom TMonom::operator-(TMonom& A)
 {
@@ -174,7 +174,7 @@ TMonom TMonom::operator-(TMonom& A)
     throw MyException("Different power");
   tmp.coeff = coeff - A.coeff;
   return tmp;
-}
+}// ---------------------------------------------------------------------------
 
 TMonom TMonom::operator-=(TMonom & A)
 {
@@ -184,7 +184,7 @@ TMonom TMonom::operator-=(TMonom & A)
     throw MyException("Different power");
   coeff -= A.coeff;
   return *this;
-}
+}// ---------------------------------------------------------------------------
 
 TMonom TMonom::operator*(const TMonom& A) const
 {
@@ -195,7 +195,7 @@ TMonom TMonom::operator*(const TMonom& A) const
   for (int i = 0; i < n; i++)
     tmp.power[i] = power[i] + A.power[i];
   return tmp;
-}
+}// ---------------------------------------------------------------------------
 
 TMonom TMonom::operator*=(TMonom& A)
 {
@@ -205,7 +205,7 @@ TMonom TMonom::operator*=(TMonom& A)
   for (int i = 0; i < n; i++)
     power[i] += A.power[i];
   return *this;
-}
+}// ---------------------------------------------------------------------------
 
 bool TMonom::operator==(TMonom& A)
 {
@@ -215,7 +215,7 @@ bool TMonom::operator==(TMonom& A)
     if (power[i] != A.power[i])
       return false;
   return true;
-}
+}// ---------------------------------------------------------------------------
 
 bool TMonom::operator>(TMonom& A)
 {
@@ -233,7 +233,7 @@ bool TMonom::operator>(TMonom& A)
       return false;
   }
   return true;
-}
+}// ---------------------------------------------------------------------------
 
 bool TMonom::operator<(TMonom& A)
 {
@@ -253,7 +253,7 @@ bool TMonom::operator<(TMonom& A)
   if (coeff > A.coeff)
     return false;
   return true;
-}
+}// ---------------------------------------------------------------------------
 
 istream& operator>>(istream& istr, TMonom& A)
 {
@@ -261,7 +261,7 @@ istream& operator>>(istream& istr, TMonom& A)
   for (int i = 0; i < A.n; i++)
     istr >> A.power[i];
   return istr;
-}
+}// ---------------------------------------------------------------------------
 
 ostream& operator<<(ostream& ostr, TMonom& A)
 {
@@ -277,4 +277,4 @@ ostream& operator<<(ostream& ostr, TMonom& A)
       }
   }
   return ostr;
-}
+}// ---------------------------------------------------------------------------

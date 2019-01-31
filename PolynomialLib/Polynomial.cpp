@@ -7,7 +7,7 @@ TPolynom::TPolynom(int _n)
   n = _n;
   size = 0;
   start = 0;
-}
+}// ---------------------------------------------------------------------------
 
 TPolynom::TPolynom(TPolynom &p)
 {
@@ -28,19 +28,20 @@ TPolynom::TPolynom(TPolynom &p)
     }
     b->SetNext(NULL);
   }
-}
+}// ---------------------------------------------------------------------------
 
-TPolynom::~TPolynom() {}
+TPolynom::~TPolynom() 
+{}// ---------------------------------------------------------------------------
 
 int TPolynom::GetSize()
 {
   return size;
-}
+}// ---------------------------------------------------------------------------
 
 TMonom* TPolynom::GetStart()
 {
   return start;
-}
+}// ---------------------------------------------------------------------------
 
 TPolynom TPolynom::operator+(TPolynom &p)
 {
@@ -100,7 +101,7 @@ TPolynom TPolynom::operator+(TPolynom &p)
     i = i->GetNext();
   }
   return rez;
-}
+}// ---------------------------------------------------------------------------
 
 TPolynom TPolynom::operator-(TPolynom &p)
 {
@@ -170,7 +171,7 @@ TPolynom TPolynom::operator-(TPolynom &p)
     i = i->GetNext();
   }
   return rez;
-}
+}// ---------------------------------------------------------------------------
 
 TPolynom& TPolynom::operator=(const TPolynom &p)
 {
@@ -199,7 +200,7 @@ TPolynom& TPolynom::operator=(const TPolynom &p)
     }
     return *this;
   }
-}
+}// ---------------------------------------------------------------------------
 
 bool TPolynom::operator==(const TPolynom &p)
 {
@@ -219,7 +220,7 @@ bool TPolynom::operator==(const TPolynom &p)
     b = b->GetNext();
   }
   return true;
-}
+}// ---------------------------------------------------------------------------
 
 TPolynom TPolynom::operator*(TPolynom &p)
 {
@@ -247,7 +248,7 @@ TPolynom TPolynom::operator*(TPolynom &p)
     _pst = p.start;
   }
   return rez;
-}
+}// ---------------------------------------------------------------------------
 
 TPolynom &TPolynom::operator+=(TMonom &m)
 {
@@ -309,7 +310,7 @@ TPolynom &TPolynom::operator+=(TMonom &m)
   }
   size++;
   return *this;
-}
+}// ---------------------------------------------------------------------------
 
 TPolynom &TPolynom::operator-=(TMonom &m)
 {
@@ -372,7 +373,7 @@ TPolynom &TPolynom::operator-=(TMonom &m)
   }
   size++;
   return *this;
-}
+}// ---------------------------------------------------------------------------
 
 ostream& operator<<(ostream& _s, TPolynom& Tm)
 {
@@ -389,4 +390,4 @@ ostream& operator<<(ostream& _s, TPolynom& Tm)
     tmp = tmp->GetNext();
   }
   return _s;
-}
+}// ---------------------------------------------------------------------------

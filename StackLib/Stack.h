@@ -164,4 +164,4 @@ template <class T>
 int TStack<T>::operator!=(const TStack<T>& s) const
 {
   return !(*this == s);
-}
+}//-------------------------------------------------------------------------

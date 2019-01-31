@@ -1,5 +1,4 @@
 #include "Matrix.h"
-
 #include <gtest.h>
 
 TEST(Matrix, can_create_matrix_with_not_specified_size)
