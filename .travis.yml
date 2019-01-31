@@ -8,15 +8,15 @@ before_script:
 script:
   - cmake ../381706_Maximova_All_Lab
   - make -j
-  -./VectorTest/VectorTest
-  -./MatrixTest/MatrixTest
-  -./StackTest/StackTest
-  -./QueueTest/QueueTest
-  -./ListTest/ListTest
-  -./ArrListTest/ArrListTest
-  -./StackListTest/StackListTest
-  -./PolishTest/PolishTest
-  -./PolynomialTest/PolynomialTest
-  -./MultiStack/MultiStack
+  - ./VectorTest/VectorTest
+  - ./MatrixTest/MatrixTest
+  - ./StackTest/StackTest
+  - ./QueueTest/QueueTest
+  - ./ListTest/ListTest
+  - ./StackListTest/StackListTest
+  - ./ArrListTest/ArrListTest
+  - ./MultiStackTest/MultiStackTest
+  - ./PolynomialTest/PolynomialTest
+  - ./PolishTest/PolishTest
 notifications:
   email: false
