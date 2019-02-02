@@ -49,6 +49,106 @@ TEST(Polish, can_add)
   EXPECT_EQ(17, Rez(B));
 }
 
+TEST(Polish, throw_when_math_expression_have_is_uncurrent_symbol)
+{
+  char s[] = "9!8";
+  TString A(s);
+  TQueue<char> B;
+  ASSERT_ANY_THROW(ConvertToPol(A));
+}
+
+TEST(Polish, throw_when_math_expression_have_is_uncurrent_kol_skobok)
+{
+  char s[] = "(9*8";
+  TString A(s);
+  TQueue<char> B;
+  ASSERT_ANY_THROW(ConvertToPol(A));
+}
+
+TEST(Polish, throw_when_math_expression_is_fuflo_in_begin)
+{
+  char s[] = "*9*8";
+  TString A(s);
+  TQueue<char> B;
+  ASSERT_ANY_THROW(ConvertToPol(A));
+}
+
+TEST(Polish, no_throw_when_queue_is_chiki_bamboni)
+{
+  TQueue<char> B(7);
+  B.Put('[');
+  B.Put('9');
+  B.Put(']');
+  B.Put('[');
+  B.Put('8');
+  B.Put(']');
+  B.Put('+');
+  ASSERT_NO_THROW(Rez(B));
+  ASSERT_EQ(Rez(B), 17);
+}
+
+TEST(Polish, throw_when_queue_is_fuflo_in_begin)
+{
+  TQueue<char> B(7);
+  B.Put('+');
+  B.Put('[');
+  B.Put('9');
+  B.Put(']');
+  B.Put('[');
+  B.Put('8');
+  B.Put(']');
+  ASSERT_ANY_THROW(Rez(B));
+}
+
+TEST(Polish, throw_when_queue_is_fuflo_in_begin_2)
+{
+  TQueue<char> B(7);
+  B.Put('[');
+  B.Put('9');
+  B.Put(']');
+  B.Put('*');
+  B.Put('[');
+  B.Put('8');
+  B.Put(']');
+  ASSERT_ANY_THROW(Rez(B));
+}
+
+TEST(Polish, throw_when_queue_is_fuflo_1)
+{
+  TQueue<char> B(10);
+  B.Put('[');
+  B.Put('9');
+  B.Put(']');
+
+  B.Put('[');
+  B.Put('9');
+  B.Put(']');
+  
+  B.Put('+');
+
+  B.Put('[');
+  B.Put('4');
+  B.Put(']');
+  
+  ASSERT_ANY_THROW(Rez(B));
+}
+
+TEST(Polish, throw_when_queue_is_fuflo)
+{
+  TQueue<char> B(7);
+  B.Put('[');
+  B.Put('9');
+  B.Put(']');
+
+  B.Put('[');
+  B.Put('9');
+  B.Put(']');
+
+  B.Put('&');
+
+  ASSERT_ANY_THROW(Rez(B));
+}
+
 TEST(Polish, can_add_two_digit_number) 
 {
   char s[] = "43+57";
@@ -95,7 +195,6 @@ TEST(Polish, can_multiplication_and_add_whith_hooks)
   TString A(s);
   TQueue<char> B;
   B = ConvertToPol(A);
-
   EXPECT_EQ(34, Rez(B));
 }
 
@@ -105,7 +204,7 @@ TEST(Polish, can_multiplication_and_add_whithout_hooks)
   TString A(s);
   TQueue<char> B;
   B = ConvertToPol(A);
-
+  Rez(B);
   EXPECT_EQ(25, Rez(B));
 }
 

@@ -241,10 +241,10 @@ TEST(TPolynom, can_add_equal_polynoms)
   Q += A;
   Q += D;
   ASSERT_NO_THROW(P + Q);
-  TPolynom C(3);
-  C = P + Q;
-  TMonom* a = C.GetStart();
-  ASSERT_EQ(3, C.GetSize());
+  TPolynom U(3);
+  U = P + Q;
+  TMonom* a = U.GetStart();
+  ASSERT_EQ(3, U.GetSize());
   ASSERT_TRUE(*a == D);
   a = a->GetNext();
   ASSERT_TRUE(*a == A);
@@ -272,10 +272,10 @@ TEST(TPolynom, can_minus_equal_polynoms)
   Q += A;
   Q += D;
   ASSERT_NO_THROW(P - Q);
-  TPolynom C(3);
-  C = P - Q;
-  TMonom* a = C.GetStart();
-  ASSERT_EQ(2, C.GetSize());
+  TPolynom U(3);
+  U = P - Q;
+  TMonom* a = U.GetStart();
+  ASSERT_EQ(2, U.GetSize());
   ASSERT_TRUE(*a == D);
   ASSERT_TRUE(a->GetC() == -3);
   a = a->GetNext();
@@ -332,9 +332,9 @@ TEST(TPolynom, can_equivalence_polynoms_now)
 
 TEST(TPolynom, trows_when_equivalence_polynoms_with_different_n)
 {
-  TPolynom A(3);
-  TPolynom B(4);
-  ASSERT_ANY_THROW(A == B);
+  TPolynom M(3);
+  TPolynom N(4);
+  ASSERT_ANY_THROW(M == N);
 }
 
 TEST(TPolynom, can_multiply_equal_polynoms)

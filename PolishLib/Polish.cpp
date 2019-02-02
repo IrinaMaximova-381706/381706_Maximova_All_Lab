@@ -18,7 +18,7 @@ int GetPrt(const char op)
   case '/':
     return 3;
   default:
-    throw MyException("error. Uncurrent symbol.");;
+    throw MyException("error. Uncurrent symbol.");
   }
 }//-----------------------------------------------------------------
 
@@ -29,17 +29,24 @@ bool IsOp(char a)
 
 TQueue<char> ConvertToPol(TString s)
 {
+  int open = 0;
+  int close = 0;
   TQueue<char> Q(s.GetLength() * 3);
   TStack<char> S(s.GetLength() * 3);
   for (int i = 0; i < s.GetLength(); i++)
   {
     if (i == 0)
-      if (s[0] == '-') 
+    {
+      if (s[0] == '-')
       {
         Q.Put('[');
         Q.Put('0');
         Q.Put(']');
       }
+      else if (IsOp(s[0]))
+        if (GetPrt(s[0]) != 1)
+          throw MyException("error. Uncurrent math expression.");
+    }
     if (isdigit(s[i]))
     {
       Q.Put('[');
@@ -51,14 +58,24 @@ TQueue<char> ConvertToPol(TString s)
       Q.Put(s[i]);
       Q.Put(']');
     }
-    else if (S.IsEmpty())
+    else if (S.IsEmpty() && IsOp(s[i]))
+    {
       S.Put(s[i]);
+      if (s[i] == '(')
+        open++;
+      if (s[i] == ')')
+        throw MyException("error. Uncurrent math expression.");
+    }
     else if (IsOp(s[i]))
     {
       if (s[i] == '(')
+      {
         S.Put(s[i]);
+        open++;
+      }
       else if (s[i] == ')')
       {
+        close++;
         while (S.Top() != '(')
           Q.Put(S.Get());
         S.Get();
@@ -76,9 +93,13 @@ TQueue<char> ConvertToPol(TString s)
         }
       }
     }
+    else if (s[i] != '\0')
+      throw MyException("error. Uncurrent math expression.");
   }
   while (!S.IsEmpty())
     Q.Put(S.Get());
+  if (open != close)
+    throw MyException("error. Uncurrent math expression.");
   return Q;
 }//-----------------------------------------------------------------
 
@@ -86,11 +107,18 @@ double Rez(TQueue<char> q)
 {
   double res = 0;
   TStack<double> S(q.GetSize());
+  if (IsOp(q.Top()))
+    throw MyException("error. Uncurrent queue.");
+  int i = 0;
+  int dit = 0;
+  int t = 0;
   while (!q.IsEmpty())
   {
+    i++;
     char A = q.Get();
     if (A == '[')
     {
+      dit++;
       A = q.Get();
       double tmp = std::atof(&A);
       while (q.Top() != ']' && !q.IsEmpty())
@@ -101,7 +129,7 @@ double Rez(TQueue<char> q)
       q.Get();
       S.Put(tmp);
     }
-    if (IsOp(A))
+    else if (IsOp(A))
     {
       double B = S.Get();
       double C = S.Get();
@@ -116,7 +144,13 @@ double Rez(TQueue<char> q)
         D = C / B;
       S.Put(D);
     }
+    else 
+      throw MyException("error. Uncurrent symbol in queue.");
+    if (i == 2 && dit != 2)
+      throw MyException("error. Uncurrent queue.");
   }
   res = S.Get();
+  if (!S.IsEmpty())
+    throw MyException("error. Uncurrent queue.");
   return res;
 }//-----------------------------------------------------------------
