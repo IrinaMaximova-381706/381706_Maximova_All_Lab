@@ -12,11 +12,11 @@ public:
   TVector(const TVector &v);                
   virtual ~TVector();
 
-  int GetSize() const; // размер вектора
+  int GetSize() const;                      // размер вектора
   virtual T& operator[](int pos);           // доступ
   
-  bool operator==(const TVector &v) const;  // сравнение
-  bool operator!=(const TVector &v) const;  // сравнение
+  bool operator==(const TVector &v) const;      // сравнение
+  bool operator!=(const TVector &v) const;      // сравнение
   virtual TVector& operator=(const TVector &v); // присваивание
 
   TVector operator+(const T &val);   // прибавить скаляр
@@ -25,7 +25,7 @@ public:
 
   TVector operator+(const TVector &v);     // сложение
   TVector operator-(const TVector &v);     // вычитание
-  T operator*(const TVector &v);     // скалярное произведение
+  T operator*(const TVector &v);           // скалярное произведение
 
   template <class ValType1>
   friend istream& operator>>(istream &in, TVector<ValType1>& v);
@@ -201,5 +201,5 @@ ostream& operator<<(ostream &out, const TVector<T> &v)
 	for (int i = 0; i < v.size; i++)
 		out << v.vec[i] << ' ';
 	return out;
-}
+}//-------------------------------------------------------------------------
 

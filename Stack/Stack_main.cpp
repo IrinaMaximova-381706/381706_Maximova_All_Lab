@@ -28,7 +28,7 @@ int main()
     stack.PrintStack();
 
     if (copyStack != stack)
-      cout << "\n\nCopyStack and Stack different";
+      cout << "\n\nCopyStack and Stack different\n";
   }
 
   catch (MyException exp)

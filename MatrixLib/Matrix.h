@@ -12,16 +12,16 @@ public:
 
   bool operator==(const TMatrix &mt) const;      // сравнение
   bool operator!=(const TMatrix &mt) const;      // сравнение
-  TMatrix& operator=(const TMatrix &mt);        // присваивание
-  TMatrix operator+(const TMatrix &mt);         // сложение
-  TMatrix operator-(const TMatrix &mt);         // вычитание
+  TMatrix& operator=(const TMatrix &mt);         // присваивание
+  TMatrix operator+(const TMatrix &mt);          // сложение
+  TMatrix operator-(const TMatrix &mt);          // вычитание
   TMatrix<T> operator*(const TMatrix<T> &MT);    // умножение
   TMatrix<T> operator/(const TMatrix<T> &MT);    //деление
 
   template <class ValType2>
   friend istream& operator>>(istream &in, TMatrix<ValType2> &mt);
   template <class ValType2>
-  friend ostream & operator<<(ostream &out, const TMatrix<ValType2> &mt);
+  friend ostream& operator<<(ostream &out, const TMatrix<ValType2> &mt);
 };
 
 template <class T>
@@ -31,7 +31,7 @@ TMatrix<T>::TMatrix(int s) :TVector<TVector<T> >(s)
     throw MyException("error size");
   for (int i = 0; i < s; i++)
     this->vec[i] = TVector<T>(s - i);
-} //-------------------------------------------------------------------------
+}//-------------------------------------------------------------------------
 
 template <class T>
 TMatrix<T>::TMatrix(const TMatrix<T> &mt) :TVector<TVector<T> >(mt)
@@ -62,7 +62,7 @@ TMatrix<T>& TMatrix<T>::operator=(const TMatrix<T> &mt)
 {
   TVector<TVector<T> >::operator=(mt);
   return *this;
-} //-------------------------------------------------------------------------
+}//-------------------------------------------------------------------------
 
 template <class T>
 TMatrix<T> TMatrix<T>::operator+(const TMatrix<T> &mt)
@@ -71,7 +71,7 @@ TMatrix<T> TMatrix<T>::operator+(const TMatrix<T> &mt)
     return TVector<TVector<T> >::operator+(mt);
   else
     throw MyException("error size operand");
-} //-------------------------------------------------------------------------
+}//-------------------------------------------------------------------------
 
 template <class T>
 TMatrix<T> TMatrix<T>::operator-(const TMatrix<T> &mt)
@@ -80,7 +80,7 @@ TMatrix<T> TMatrix<T>::operator-(const TMatrix<T> &mt)
     return TVector<TVector<T> >::operator-(mt);
   else
     throw MyException("error size operand");
-} //-------------------------------------------------------------------------
+}//-------------------------------------------------------------------------
 
 template <class T>
 TMatrix<T> TMatrix<T>::operator*(const TMatrix<T> &mt)
@@ -143,4 +143,4 @@ ostream & operator<<(ostream &out, const TMatrix<ValType2> &mt)
     out << mt.vec[i] << endl;
   }
   return out;
-}
+}//-------------------------------------------------------------------------
